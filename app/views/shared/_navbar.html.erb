@@ -1,5 +1,21 @@
-
-<% if user_signed_in? %>
-  <span>Welcome, <%= current_user.name %></span>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %> 
-<% end %>
+<nav>
+  <div class="search-area">
+    <div class="search-bar">
+      <input type="search">
+      <button>Search</button>
+    </div>
+  </div>
+  <div class="logo">
+    <h1><%= link_to "tweeter", root_url %></h1>
+  </div>
+  <div class="profile-container">
+    <div class="profile">
+      <% if user_signed_in? %>
+        <h3 class="name"><%= current_user.name %></h3>
+        <button><%= link_to "Log Out", destroy_user_session_path, method: :delete %></button>
+      <% else %>
+        <button><%= link_to "Sign In", new_user_session_path %><button>
+      <% end %>
+    </div>
+  </div>
+</nav>

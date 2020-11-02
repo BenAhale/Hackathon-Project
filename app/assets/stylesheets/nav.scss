@@ -1,0 +1,113 @@
+$primary-blue: #4287f5;
+
+nav {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    border-bottom: 2px solid lightgrey;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Open Sans';
+
+    .search-area {
+        width: 270px;
+        background-color: #ddd;
+        border-radius: 7px;
+        height: 40px;
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+    
+    .search-bar {
+        display: inline-block;
+        margin-top: 3px;
+
+        input {
+            width: 200px;
+            height: 35px;
+            background-color: #ddd;
+            border: none;
+            border-radius: 7px;
+        }
+
+        input:focus {
+            border: none;
+        }
+
+        button {
+            width: 60px;
+            height: 30px;
+            background-color: white;
+            border: none;
+            border-radius: 7px;
+        }
+
+        button:hover {
+            background-color: #eee;
+            transition-duration: 0.6s;
+            cursor: pointer;
+        }
+    }
+
+    .logo {
+        display: inline-block;
+        font-size: 35px;
+
+        h1 {
+            margin-top: 0px;
+            font-family: 'Alfa Slab One';
+            letter-spacing: 8px;
+        }
+
+        a {
+            color: $primary-blue;
+            text-decoration: none;
+        }
+    }
+
+    .profile-container {
+        display: inline-block;
+        width: 285px;
+        margin-top: 22px;
+        display: flex;
+        justify-content: center;
+
+        .name {
+            font-size: 24px;
+            margin-right: 10px;
+            display: inline-block;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        a {
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+        }
+        
+        button {
+            height: 40px;
+            width: 90px;
+            border-radius: 7px;
+            border: none;
+            background-color: #ddd;
+        }
+        
+        button:hover {
+            background-color: #ccc;
+            transition-duration: 0.6s;
+            cursor: pointer;
+        }
+    }
+}
+
+.notice {
+    margin-top: 100px;
+}
+
+.alert {
+    margin-top: 100px;
+}
