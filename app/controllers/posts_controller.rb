@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :match_user, only: [:edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -70,5 +71,12 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:content)
+    end
+
+    def match_user
+      post = Post.find(params[:id])
+      unless post.user.id == current_user.id
+        redirect_to posts_path
+      end
     end
 end
