@@ -145,6 +145,18 @@ $primary-blue: #4287f5;
             font-family: 'Open Sans';
             font-size: 18px;
         }
+        .bottom-bar {
+            i {
+                font-size: 21px;
+                color: $primary-blue;
+            }
+        }
     }
 
+}
+
+.comments {
+    height: 0px;
+    overflow: hidden;
+    transition: all .3s ease;
 }
