@@ -33,6 +33,22 @@
           <i class="fa fa-ellipsis-h"></i>
         </div>
         <p class="post-content"><%= post.content %></p>
+        <div class="bottom-bar">
+          <%# <i class="fas fa-comment comment-button"></i> %>
+          <button class="comment-button">
+            <i class="fas fa-comment"></i>
+          </button>
+          <div class="comments">
+          <% if post.comments.length > 0 %>
+            <% post.comments.each do |comment| %>
+              <p><%= comment.content %><p>
+              <p><%= comment.user.name %><p>
+              <p><%= comment.created_at.strftime("%l:%M%p %d %b") %><p>
+              <input type="text">
+            <% end %>
+          <% end %>
+        </div>
+        </div>
       </div>
     <% end %>
   </section>
@@ -80,4 +96,16 @@
       el.style.cssText = 'height:' + el.scrollHeight + 'px';
     },0);
   }
+
+jQuery(document).ready(function($)
+{
+  
+  $(".comment-button").click(function()
+  {
+    
+    $(".comments").slideToggle( "slow");
+    
+  });  
+  
+});
 </script>
