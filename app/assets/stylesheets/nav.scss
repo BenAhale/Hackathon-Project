@@ -4,7 +4,7 @@ nav {
     position: fixed;
     width: 100%;
     height: 70px;
-    background-color: #fff;
+    background-color: $primary-blue;
     border-bottom: 2px solid lightgrey;
     top: 0;
     display: flex;
@@ -13,8 +13,8 @@ nav {
 
     .search-area {
         width: 270px;
-        background-color: #ddd;
-        border-radius: 7px;
+        background-color: #fff;
+        border-radius: 10px;
         height: 40px;
         margin-top: 15px;
         margin-left: 15px;
@@ -27,7 +27,7 @@ nav {
         input {
             width: 200px;
             height: 35px;
-            background-color: #ddd;
+            background-color: #fff;
             border: none;
             border-radius: 7px;
         }
@@ -39,7 +39,7 @@ nav {
         button {
             width: 60px;
             height: 30px;
-            background-color: white;
+            background-color: #ddd;
             border: none;
             border-radius: 7px;
         }
@@ -58,11 +58,11 @@ nav {
         h1 {
             margin-top: 0px;
             font-family: 'Alfa Slab One';
-            letter-spacing: 8px;
+            letter-spacing: 5px;
         }
 
         a {
-            color: $primary-blue;
+            color: white;
             text-decoration: none;
         }
     }
@@ -70,7 +70,7 @@ nav {
     .profile-container {
         display: inline-block;
         width: 285px;
-        margin-top: 22px;
+        margin-top: 18px;
         display: flex;
         justify-content: center;
 
@@ -93,11 +93,13 @@ nav {
             width: 90px;
             border-radius: 7px;
             border: none;
-            background-color: #ddd;
+            background-color: #fff;
+            // position: relative;
+            // bottom: 5px;
         }
         
         button:hover {
-            background-color: #ccc;
+            background-color: #eee;
             transition-duration: 0.6s;
             cursor: pointer;
         }
@@ -105,9 +107,5 @@ nav {
 }
 
 .notice {
-    margin-top: 100px;
-}
-
-.alert {
     margin-top: 100px;
 }

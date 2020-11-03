@@ -1,6 +1,42 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
+<div class="main-container">
+  <section class="sidebar">
+    <div class="profile-card">
+      <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+      <h1><%= current_user.name %></h1>
+      <% unless current_user.bio == nil %>
+        <p><%= current_user.bio %></p>
+      <% end %>
+    </div>
+    <div class="recommended-card">
+      <h1>Recommended</h1>
+      <% @users.each do |user| %>
+        <% unless current_user.id == user.id %>
+          <p><%= user.name %></h3>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+  <section class="main">
+    <div class="new-tweet">
+      <%= render 'form', post: @post %>
+    </div>
+    <% @posts.reverse_each do |post| %>
+      <div class="post-card">
+        <div class="post-user-container">
+          <div class="post-user">
+            <img class="post-user-photo" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+            <div class="post-user-name">
+              <p><%= post.user.name %></p>
+              <p class="post-time"><%= post.created_at.strftime("%l:%M%p %d %b") %>
+            </div>
+          </div>
+          <i class="fa fa-ellipsis-h"></i>
+        </div>
+        <p class="post-content"><%= post.content %></p>
+      </div>
+    <% end %>
+  </section>
+</div>
 
 <table>
   <thead>
@@ -29,3 +65,19 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+
+<script>
+  var textarea = document.querySelector('textarea');
+
+  textarea.addEventListener('keydown', autosize);
+              
+  function autosize(){
+    var el = this;
+    setTimeout(function(){
+      el.style.cssText = 'height:auto; padding:0';
+      // for box-sizing other than "content-box" use:
+      // el.style.cssText = '-moz-box-sizing:content-box';
+      el.style.cssText = 'height:' + el.scrollHeight + 'px';
+    },0);
+  }
+</script>
