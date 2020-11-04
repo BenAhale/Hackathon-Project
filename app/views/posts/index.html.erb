@@ -1,8 +1,8 @@
 <div class="main-container">
   <section class="sidebar">
     <div class="profile-card">
-      <% if current_user.avatar.attached? %>
-        <%= image_tag current_user.avatar %>
+      <% if current_user.avatar.present? %>
+        <%= image_tag current_user.avatar.url %>
       <% else %>
         <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
       <% end %>
@@ -29,7 +29,11 @@
       <div class="post-card">
         <div class="post-user-container">
           <div class="post-user">
-            <img class="post-user-photo" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+            <% if current_user.avatar.present? %>
+              <%= image_tag current_user.avatar.url %>
+            <% else %>
+              <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+            <% end %>
             <div class="post-user-name">
               <p><%= post.user.name %></p>
               <p class="post-time"><%= post.created_at.strftime("%l:%M%p %d %b") %>
