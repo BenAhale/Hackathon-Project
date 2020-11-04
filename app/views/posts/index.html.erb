@@ -8,8 +8,8 @@
       <div class="post-card">
         <div class="post-user-container">
           <div class="post-user">
-            <% if current_user.avatar.present? %>
-              <%= image_tag current_user.avatar.url %>
+            <% if post.user.avatar.present? %>
+              <%= image_tag post.user.avatar.url %>
             <% else %>
               <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
             <% end %>
@@ -18,7 +18,17 @@
               <p class="post-time"><%= post.created_at.strftime("%l:%M%p %d %b") %>
             </div>
           </div>
-          <i class="fa fa-ellipsis-h"></i>
+          <% if current_user.id == post.user.id %>
+            <div class="post-options">
+              <%= link_to '<i class="fas fa-edit edit-button"></i>'.html_safe, edit_post_path(post) %>
+              <%= link_to '<i class="fas fa-trash-alt delete-button"></i>'.html_safe, post, method: :delete %>
+            </div>
+          <% end %>
+
+        </div>
+        <div class="post-options-menu">
+          <%= link_to "Edit", edit_post_path(post) %>
+          <%= link_to "Delete", post, method: :delete %>
         </div>
         <p class="post-content"><%= post.content %></p>
         <div class="bottom-bar">

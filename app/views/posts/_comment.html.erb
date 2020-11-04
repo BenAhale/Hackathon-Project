@@ -15,10 +15,10 @@
   <%= form.hidden_field :post_id, :value => @post.id %>
 
   <div class="field">
-    <%= form.text_area :content %>
+    <%= form.text_area :content, placeholder: "Have something to say?.." %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Comment" %>
   </div>
 <% end %>

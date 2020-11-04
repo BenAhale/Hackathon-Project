@@ -128,6 +128,15 @@ $primary-blue: #4287f5;
             i {
                 font-size: 24px;
             }
+
+            #post-options  {
+                display: none;
+            }
+
+            .lbl-toggle {
+                cursor: pointer;
+            }
+
             .post-time {
                 font-family: 'Open Sans';
                 font-size: 13px;
@@ -138,7 +147,12 @@ $primary-blue: #4287f5;
                 width: 50px;
                 height: 50px;
                 display: inline-block;
+                border-radius: 50px;
             }
+        }
+        .post-options-menu {
+            display: none;
+            float: right;
         }
         .post-content {
             width: 100%;
@@ -185,4 +199,14 @@ $primary-blue: #4287f5;
         }
     }
 
+}
+
+.edit-button {
+    font-size: 20px !important;
+    color: $primary-blue;
+}
+
+.delete-button {
+    font-size: 20px !important;
+    color: $primary-blue;
 }
