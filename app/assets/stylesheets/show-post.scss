@@ -1,3 +1,5 @@
+$primary-blue: #4287f5;
+
 .comments {
     border-top: 1.5px solid gray;
 
@@ -84,4 +86,19 @@
             cursor: pointer;
         }
     }
+}
+
+.edit-button {
+    font-size: 20px !important;
+    color: $primary-blue;
+}
+
+.delete-button {
+    font-size: 20px !important;
+    color: $primary-blue;
+}
+
+.back-button {
+    font-size: 20px !important;
+    color: $primary-blue;
 }

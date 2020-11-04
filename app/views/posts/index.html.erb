@@ -10,7 +10,7 @@
         <div class="post-user-container">
           <div class="post-user">
             <% if post.user.avatar.present? %>
-              <%= image_tag post.user.avatar.url %>
+              <%= image_tag post.user.avatar %>
             <% else %>
               <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
             <% end %>

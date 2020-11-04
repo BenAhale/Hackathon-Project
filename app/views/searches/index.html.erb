@@ -1,12 +1,19 @@
-<h1>Searching result</h1>
+<h1>Search Results..</h1>
 <% @posts.each do |post|%>
-  <% post.content.to_s.split(' ').each do |word| %>
-    <% if word.start_with?('#') %>
-      <%= link_to word, searches_path(query: word) %>
-    <% else %>
-      <%= word %>
+  <div class="post-card">
+    <% post.content.to_s.split(' ').each do |word| %>
+      <% if word.start_with?('#') %>
+        <%= link_to word, searches_path(query: word) %>
+      <% else %>
+        <% if post.user.avatar.present? %>
+          <%= image_tag post.user.avatar, class: "post-user-photo" %>
+        <% else %>
+          <img class="post-user-photo" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+        <% end %>
+        <%= post.content %>
+        <%= post.user.name %>
+      <% end %>
     <% end %>
-  <% end %>
-  <br>
+  </div>
 <% end %>
 
