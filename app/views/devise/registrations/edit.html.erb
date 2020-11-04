@@ -42,6 +42,13 @@
   </div>
 
   <div class="field">
+    <%= f.label :avatar, class: 'col-sm-2 control-label' %><br />
+    <div class="col-sm-6">
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
+
+  <div class="field">
     <%= f.label :location %><br />
     <%= f.country_select :location %>
   </div>
