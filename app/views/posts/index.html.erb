@@ -1,12 +1,17 @@
 <div class="main-container">
   <section class="sidebar">
     <div class="profile-card">
-      <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+      <% if current_user.avatar.attached? %>
+        <%= image_tag current_user.avatar %>
+      <% else %>
+        <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+      <% end %>
       <h1><%= current_user.name %></h1>
       <% unless current_user.bio == nil %>
         <p><%= current_user.bio %></p>
       <% end %>
     </div>
+
     <div class="recommended-card">
       <h1>Recommended</h1>
       <% @users.each do |user| %>
