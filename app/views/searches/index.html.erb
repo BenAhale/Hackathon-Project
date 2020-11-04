@@ -5,11 +5,6 @@
       <% if word.start_with?('#') %>
         <%= link_to word, searches_path(query: word) %>
       <% else %>
-        <% if post.user.avatar.present? %>
-          <%= image_tag post.user.avatar, class: "post-user-photo" %>
-        <% else %>
-          <img class="post-user-photo" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
-        <% end %>
         <%= post.content %>
         <%= post.user.name %>
       <% end %>
