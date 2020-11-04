@@ -1,5 +1,6 @@
 <div class="main-container">
   <%= render 'sidebar' %>
+
   <section class="main">
     <div class="new-tweet">
       <%= render 'form', post: @post %>
@@ -30,7 +31,15 @@
           <%= link_to "Edit", edit_post_path(post) %>
           <%= link_to "Delete", post, method: :delete %>
         </div>
-        <p class="post-content"><%= post.content %></p>
+        <p class="post-content">
+        <% post.content.to_s.split(' ').each do |word| %>
+          <% if word.start_with?('#') %>
+            <%= link_to word, searches_path(query: word) %>
+          <%else %>
+            <%= word %>
+          <%end %>
+        <% end %>
+        </p>
         <div class="bottom-bar">
           <div class="like">
             <p class="like-count"><%= post.likes.length %></p>

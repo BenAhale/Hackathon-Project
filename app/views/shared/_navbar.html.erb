@@ -1,8 +1,12 @@
 <nav>
   <div class="search-area">
     <div class="search-bar">
-      <input type="search">
-      <button>Search</button>
+      <%# <input type="search"> %>
+      <%= form_with url: searches_path, method: :get, local: true do |form| %>
+        <%= form.text_field :query, placeholder: '#search' %>
+        <%= form.submit "Search", class: "search_button"%>
+      <% end %>
+      <%# <button>Search</button> %>
     </div>
   </div>
   <div class="logo">

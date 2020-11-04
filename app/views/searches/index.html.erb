@@ -1,0 +1,12 @@
+<h1>Searching result</h1>
+<% @posts.each do |post|%>
+  <% post.content.to_s.split(' ').each do |word| %>
+    <% if word.start_with?('#') %>
+      <%= link_to word, searches_path(query: word) %>
+    <% else %>
+      <%= word %>
+    <% end %>
+  <% end %>
+  <br>
+<% end %>
+
