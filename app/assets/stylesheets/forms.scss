@@ -32,6 +32,28 @@
       }
     }
   }
+
+  .button {
+    position: relative;
+    width: 100%;
+    font-size: 1em;
+    margin-bottom: 2rem;
+  }
+
+  .button, a {
+    text-decoration: none;
+    background-color: #4287f5;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
 
