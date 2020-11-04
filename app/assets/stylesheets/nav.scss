@@ -37,7 +37,7 @@ nav {
             border: none;
         }
 
-        button {
+        .search_button {
             width: 60px;
             height: 30px;
             background-color: #ddd;
@@ -45,7 +45,7 @@ nav {
             border-radius: 7px;
         }
 
-        button:hover {
+        .search_button:hover {
             background-color: #eee;
             transition-duration: 0.6s;
             cursor: pointer;
