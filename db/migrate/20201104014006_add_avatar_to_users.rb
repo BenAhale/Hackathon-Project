@@ -1,11 +1,11 @@
 class AddAvatarToUsers < ActiveRecord::Migration[6.0]
-  def up
+  def self.up
     change_table :users do |t|
       t.attachment :avatar
     end
   end
 
-  def down 
+  def self.down 
     drop_attached_file :users, :avatar
   end
 end

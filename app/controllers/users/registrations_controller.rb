@@ -10,14 +10,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super
-    current_user.attach(params[:user][:avatar])
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
   #   super
+  #   current_user.attach(params[:user][:avatar])
   # end
 
   # PUT /resource

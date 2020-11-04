@@ -10,6 +10,7 @@ nav {
     display: flex;
     justify-content: space-between;
     font-family: 'Open Sans';
+    z-index: 100;
 
     .search-area {
         width: 270px;

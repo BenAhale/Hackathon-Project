@@ -1,0 +1,22 @@
+<%= form_with(model: like, local: true) do |form| %>
+  <% if like.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(like.errors.count, "error") %> prohibited this like from being saved:</h2>
+
+      <ul>
+        <% like.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+  <%= form.hidden_field :post_id, :value => post.id %>
+
+  <div class="actions">
+    <%= button_tag( :class => "like-button-wrap") do %>
+      <i class="far fa-heart like-button"></i>
+    <% end %>
+  </div>
+<% end %>
