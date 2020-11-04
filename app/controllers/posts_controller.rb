@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @users = User.all
     @post = Post.new
+    @like = Like.new
   end
 
   # GET /posts/1
