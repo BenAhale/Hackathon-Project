@@ -40,7 +40,15 @@
           </div>
           <i class="fa fa-ellipsis-h"></i>
         </div>
-        <p class="post-content"><%= post.content %></p>
+        <p class="post-content">
+        <% post.content.to_s.split(' ').each do |word| %>
+          <% if word.start_with?('#') %>
+            <%= link_to word, searches_path(query: word) %>
+          <%else %>
+            <%= word %>
+          <%end %>
+        <% end %>
+        </p>
         <div class="bottom-bar">
           <div class="like">
             <p class="like-count"><%= post.likes.length %></p>

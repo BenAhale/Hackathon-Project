@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searches', to: "searches#index"
   resources :likes
   resources :comments
   resources :posts
