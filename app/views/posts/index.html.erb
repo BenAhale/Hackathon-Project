@@ -1,25 +1,6 @@
 <div class="main-container">
-  <section class="sidebar">
-    <div class="profile-card">
-      <% if current_user.avatar.attached? %>
-        <%= image_tag current_user.avatar %>
-      <% else %>
-        <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
-      <% end %>
-      <h1><%= current_user.name %></h1>
-      <% unless current_user.bio == nil %>
-        <p><%= current_user.bio %></p>
-      <% end %>
-    </div>
-    <div class="recommended-card">
-      <h1>Recommended</h1>
-      <% @users.each do |user| %>
-        <% unless current_user.id == user.id %>
-          <p><%= user.name %></h3>
-        <% end %>
-      <% end %>
-    </div>
-  </section>
+  <%= render 'sidebar' %>
+
   <section class="main">
     <div class="new-tweet">
       <%= render 'form', post: @post %>
@@ -28,8 +9,8 @@
       <div class="post-card">
         <div class="post-user-container">
           <div class="post-user">
-            <% if current_user.avatar.attached? %>
-              <%= image_tag current_user.avatar %>
+            <% if post.user.avatar.present? %>
+              <%= image_tag post.user.avatar %>
             <% else %>
               <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
             <% end %>
@@ -38,7 +19,17 @@
               <p class="post-time"><%= post.created_at.strftime("%l:%M%p %d %b") %>
             </div>
           </div>
-          <i class="fa fa-ellipsis-h"></i>
+          <% if current_user.id == post.user.id %>
+            <div class="post-options">
+              <%= link_to '<i class="fas fa-edit edit-button"></i>'.html_safe, edit_post_path(post) %>
+              <%= link_to '<i class="fas fa-trash-alt delete-button"></i>'.html_safe, post, method: :delete %>
+            </div>
+          <% end %>
+
+        </div>
+        <div class="post-options-menu">
+          <%= link_to "Edit", edit_post_path(post) %>
+          <%= link_to "Delete", post, method: :delete %>
         </div>
         <p class="post-content">
         <% post.content.to_s.split(' ').each do |word| %>
@@ -68,34 +59,6 @@
     <% end %>
   </section>
 </div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.content %></td>
-        <td><%= post.user_id %></td>
-        <td><%= link_to 'Show', post %></td>
-        <% if post.user.id == current_user.id %>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
 
 <script>
   var textarea = document.querySelector('textarea');

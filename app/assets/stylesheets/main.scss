@@ -1,5 +1,6 @@
 @import 'nav';
 @import 'homepage';
+@import 'show-post';
 @import 'forms';
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Open+Sans&display=swap');
 
@@ -12,4 +13,22 @@ body {
 .content-container {
     width: 60%;
     margin: 0 auto;
+}
+
+@media only screen and (max-width: 1300px) {
+    .content-container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .content-container {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .content-container {
+        width: 98%;
+    }
 }

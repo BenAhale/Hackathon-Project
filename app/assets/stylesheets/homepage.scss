@@ -32,6 +32,19 @@ $primary-blue: #4287f5;
             text-align: center;
             padding-bottom: 30px;
         }
+        h3 {
+            text-align: center;
+            font-size: 22px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            text-align: center;
+            font-weight: 400;
+            font-size: 18px;
+            margin: 0;
+        }
     }
     .recommended-card {
         background-color: white;
@@ -128,6 +141,15 @@ $primary-blue: #4287f5;
             i {
                 font-size: 24px;
             }
+
+            #post-options  {
+                display: none;
+            }
+
+            .lbl-toggle {
+                cursor: pointer;
+            }
+
             .post-time {
                 font-family: 'Open Sans';
                 font-size: 13px;
@@ -138,7 +160,12 @@ $primary-blue: #4287f5;
                 width: 50px;
                 height: 50px;
                 display: inline-block;
+                border-radius: 50px;
             }
+        }
+        .post-options-menu {
+            display: none;
+            float: right;
         }
         .post-content {
             width: 100%;
@@ -185,4 +212,23 @@ $primary-blue: #4287f5;
         }
     }
 
+}
+
+.edit-profile-button {
+    width: 90%;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+a.edit-profile {
+    text-decoration: none;
+    color: black;
+    display: block;
+    text-align: center;
+    font-size: 23px;
+}
+
+a.edit-profile:hover {
+    color: $primary-blue;
 }

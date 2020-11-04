@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_060730) do
+ActiveRecord::Schema.define(version: 2020_11_04_102646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,9 +100,9 @@ ActiveRecord::Schema.define(version: 2020_11_04_060730) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "posts", on_delete: :cascade
   add_foreign_key "comments", "users"
-  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "posts", on_delete: :cascade
   add_foreign_key "likes", "users"
   add_foreign_key "post_hash_tags", "hashtags"
   add_foreign_key "post_hash_tags", "posts"

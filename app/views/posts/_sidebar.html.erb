@@ -1,0 +1,22 @@
+<section class="sidebar">
+  <div class="profile-card">
+    <% if current_user.avatar.present? %>
+      <%= image_tag current_user.avatar %>
+    <% else %>
+      <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+    <% end %>
+    <h1><%= current_user.name %></h1>
+    <% unless current_user.bio == nil %>
+      <p><%= current_user.bio %></p>
+    <% end %>
+    <h3>Location</h3>
+    <h5><%= current_user.location%><h5>
+    <h3>Education</h3>
+    <h5><%= current_user.education%></h5>
+    <h3>Work</h3>
+    <h5><%= current_user.work%></h5>
+    <div class="edit-profile-button">
+      <%= link_to '<i class="fas fa-user-alt"></i> Edit Profile'.html_safe, edit_user_registration_path(current_user), class: "edit-profile" %>
+    </div>
+  </div>
+</section>

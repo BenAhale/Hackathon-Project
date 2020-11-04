@@ -1,12 +1,14 @@
-<h1>Searching result</h1>
+<h1>Search Results..</h1>
 <% @posts.each do |post|%>
-  <% post.content.to_s.split(' ').each do |word| %>
-    <% if word.start_with?('#') %>
-      <%= link_to word, searches_path(query: word) %>
-    <% else %>
-      <%= word %>
+  <div class="post-card">
+    <% post.content.to_s.split(' ').each do |word| %>
+      <% if word.start_with?('#') %>
+        <%= link_to word, searches_path(query: word) %>
+      <% else %>
+        <%= post.content %>
+        <%= post.user.name %>
+      <% end %>
     <% end %>
-  <% end %>
-  <br>
+  </div>
 <% end %>
 

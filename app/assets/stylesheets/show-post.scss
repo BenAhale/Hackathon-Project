@@ -1,0 +1,104 @@
+$primary-blue: #4287f5;
+
+.comments {
+    border-top: 1.5px solid gray;
+
+    .comment {
+        width: 95%;
+        margin: 0 auto;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        border-bottom: 0.5px solid gray;
+        font-family: 'Open Sans';
+
+        img {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            border-radius: 50px;
+        }
+        .comment-body {
+            display: inline-block;
+        }
+
+        h1 {
+            position: relative;
+            margin: 0;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        h4 {
+            margin: 0;
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        p {
+            margin: 0;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+    }
+}
+.post-comment {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    form {
+        .field {
+            padding-top: 15px;
+                display: inline-block;
+                width: 100%;
+                margin-right: 50px;
+                textarea {
+                    display: inline-block;
+                    width: 90%;
+                    height: 35px;
+                    font-size: 16px;
+                    padding: 15px;
+                    margin-left: 10px;
+                    border: none;
+                    border-bottom: 2px solid #ccc;
+                    overflow: hidden;
+                    padding-bottom: 0;
+                }
+                textarea:focus {
+                    outline: none;
+                }
+        }
+    }
+    .actions {
+        float: right;
+        margin-right: 20px;
+        margin-top: 5px;
+        input[type="submit"] {
+            height: 40px;
+            width: 110px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            background-color: $primary-blue;
+            color: white;
+            font-size: 18px;
+            font-family: 'Open Sans';
+            cursor: pointer;
+        }
+    }
+}
+
+.edit-button {
+    font-size: 20px !important;
+    color: $primary-blue;
+}
+
+.delete-button {
+    font-size: 20px !important;
+    color: $primary-blue;
+}
+
+.back-button {
+    font-size: 20px !important;
+    color: $primary-blue;
+}

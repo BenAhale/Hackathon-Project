@@ -1,13 +1,80 @@
+<p id="notice"><%= notice %></p>
+<div class="main-container">
+  <%= render 'sidebar' %>
+  
+  <section class="main">
+    <div class="post-card">
+        <div class="post-user-container">
+          <div class="post-user">
+            <% if @post.user.avatar.present? %>
+              <%= image_tag @post.user.avatar, class: "post-user-photo" %>
+            <% else %>
+              <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+            <% end %>
+            <div class="post-user-name">
+              <p><%= @post.user.name %></p>
+              <p class="post-time"><%= @post.created_at.strftime("%l:%M%p %d %b") %>
+            </div>
+          </div>
+          <% if current_user.id == @post.user.id %>
+            <div class="post-options">
+              <%= link_to '<i class="fas fa-chevron-circle-left back-button"></i>'.html_safe, root_url, class: "back-button" %>
+              <%= link_to '<i class="fas fa-edit edit-button"></i>'.html_safe, edit_post_path(@post) %>
+              <%= link_to '<i class="fas fa-trash-alt delete-button"></i>'.html_safe, @post, method: :delete %>
+            </div>
+          <% end %>
+        </div>
+        <p class="post-content"><%= @post.content %></p>
+        <div class="bottom-bar">
+          <div class="like">
+            <p class="like-count"><%= @post.likes.length %></p>
+            <% like_found = false %>
+            <% @post.likes.each do |like| %>
+              <% if like.user.id == current_user.id %>
+                <%= link_to '<i class="fas fa-heart unlike-button"></i>'.html_safe, like, method: :delete %>
+                <% like_found = true %>
+                <% break %>
+              <% end %>
+            <% end %>
+            <%= render 'like', like: @like, post: @post if !like_found%>
+          </div>
+          <%= link_to '<i class="fas fa-comment comment-button"></i>'.html_safe, post_path(@post) %>
+        </div>
+        <div class="comments">
+          <% @post.comments.each do |comment| %>
+            <div class="comment">
+              <% if comment.user.avatar.present? %>
+                <%= image_tag comment.user.avatar, class: "post-user" %>
+              <% else %>
+                <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+              <% end %>
+              <div class="comment-body">
+                <h1><%= comment.user.name %></h1>
+                <h4><%= comment.created_at.strftime("%l:%M%p %d %b") %></h4>
+                <p><%= comment.content %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="post-comment">
+          <%= render 'comment' %>
+        </div>
+      </div>
+  </section>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+<script>
+  var textarea = document.querySelector('textarea');
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  textarea.addEventListener('keydown', autosize);
+              
+  function autosize(){
+    var el = this;
+    setTimeout(function(){
+      el.style.cssText = 'height:auto; padding:0';
+      // for box-sizing other than "content-box" use:
+      // el.style.cssText = '-moz-box-sizing:content-box';
+      el.style.cssText = 'height:' + el.scrollHeight + 'px';
+    },0);
+  }
+</script>
