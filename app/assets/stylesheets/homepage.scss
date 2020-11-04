@@ -98,6 +98,7 @@ $primary-blue: #4287f5;
         background-color: white;
         border: 1px solid #dfdfdf;
         padding: 20px 30px;
+        padding-bottom: 5px;
         box-sizing: border-box;
         margin-bottom: 25px;
         min-height: 100px;
@@ -146,17 +147,42 @@ $primary-blue: #4287f5;
             font-size: 18px;
         }
         .bottom-bar {
+            width: 72px;
+            display: flex;
+            justify-content: space-between;
+            .like {
+                display: inline-block;
+                form {
+                    display: inline-block;
+                }
+                a {
+                    margin-left: 4px;
+                }
+            }
             i {
                 font-size: 21px;
                 color: $primary-blue;
+                display: inline-block;
+            }
+            .like-count {
+                display: inline-block;
+                position: relative;
+                bottom: 3px;
+                font-size: 16px;
+                font-family: 'Open Sans';
+            }
+            .like-button-wrap {
+                background: none;
+                border: none;
+                display: inline-block;
+            }
+            .like-button-wrap:hover {
+                cursor: pointer;
+            }
+            .comment-button {
+                margin-top: 14px;
             }
         }
     }
 
-}
-
-.comments {
-    height: 0px;
-    overflow: hidden;
-    transition: all .3s ease;
 }
